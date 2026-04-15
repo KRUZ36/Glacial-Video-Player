@@ -1,90 +1,68 @@
-# Glacial — Setup Guide
+# Glacial
 
-A clean, glass-aesthetic media player built on libVLC + PyQt6.
+A clean, minimal video player built with VLC and Python. No bloat, no ads.
+![Python](https://img.shields.io/badge/python-3.10+-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
----
+## What it does
 
-## Prerequisites
-
-1. **Python 3.10+** — https://python.org
-2. **VLC Media Player (64-bit)** — https://videolan.org
-   - Must be the full VLC install, not the Windows Store version
-   - Make sure it's 64-bit if your Python is 64-bit
-
----
+- Plays basically any video/audio format (mp4, mkv, avi, flac, mp3, you name it)
+- Stream URLs (http, rtsp, rtmp, udp)
+- Queue/library with thumbnails
+- Remembers where you left off
+- 10-band equalizer with presets
+- Subtitle support (srt, ass, vtt)
+- Multiple audio tracks
+- Keyboard shortcuts for everything
+- Dark UI that doesn't burn your eyes at 3am
 
 ## Install
 
-```bash
-# 1. Create a virtual environment (recommended)
-python -m venv venv
-venv\Scripts\activate       # Windows
-# source venv/bin/activate  # Mac/Linux
+You need Python and VLC installed. That's it.
 
-# 2. Install dependencies
-pip install -r requirements.txt
 ```
-
----
+pip install PyQt6 python-vlc PyQt6-QSvgWidgets
+```
+IMPORTANT!!! USE x64 VLC ONLY!!!!!
+Make sure [VLC](https://www.videolan.org/vlc/) is installed in the default location.
 
 ## Run
 
-```bash
+```
 python main.py
+```
 
-# Or open a file directly:
+Or open a file directly:
+
+```
 python main.py "C:\path\to\video.mp4"
 ```
 
----
+## Keyboard shortcuts
 
-## Controls
+| Key | Action |
+|-----|--------|
+| Space | Play/Pause |
+| Left/Right | Seek 5s |
+| Shift+Left/Right | Seek 30s |
+| Up/Down | Volume |
+| M | Mute |
+| F | Fullscreen |
+| Escape | Exit fullscreen |
+| O | Open file |
+| U | Open URL |
+| L | Toggle queue |
+| S | Shuffle |
+| R | Repeat |
+| [ / ] | Speed down/up |
+| E | Equalizer |
+| I | Media info |
+| J | Jump to time |
+| Ctrl+V | Paste URL/path |
 
-| Action | Shortcut |
-|--------|----------|
-| Play / Pause | `Space` |
-| Seek back 5s | `←` |
-| Seek forward 5s | `→` |
-| Volume up | `↑` |
-| Volume down | `↓` |
-| Fullscreen | `F` |
-| Exit fullscreen | `Esc` |
-| Open file | `O` |
-| Toggle library | Click 📚 in title bar |
+## "Can I get an exe?"
 
----
+No exe provided. Use AI to package it if you want, I'm too lazy. Just download Python like a real OG.
 
-## Features
+## License
 
-- **Library panel** — persists between sessions (`~/.glacial_library.json`)
-- **Drag & drop** — onto the video area or library panel
-- **Frameless window** — drag the title bar to move
-- **All VLC formats** — mp4, mkv, avi, mov, mp3, flac, and everything else VLC supports
-- **Shuffle & repeat** controls
-- **Keyboard shortcuts** throughout
-
----
-
-## Package as .exe (optional)
-
-```bash
-pip install pyinstaller
-pyinstaller --onefile --windowed --name Glacial main.py
-# Output in dist/Glacial.exe
-```
-
----
-
-## Troubleshooting
-
-**VLC not found:**
-Make sure VLC is installed at `C:\Program Files\VideoLAN\VLC\` (default path).
-python-vlc looks there automatically on Windows.
-
-**Black screen / no video:**
-Try running `python main.py` from a terminal to see error output.
-Make sure your VLC and Python are both 64-bit.
-
-**PyQt6 SVG error:**
-Install the SVG module: `pip install PyQt6-Qt6 PyQt6-sip`
-If SVG icons fail, the player still works — icons just won't render.
+MIT — do whatever you want with it. Give me some credit if you feel like it so I can get a job please this took forever and crashed my computer twice since Sam Altman decided to raise Ram prices and im stuck on 8Gb's after microslop decides to steal half of it to track me.
